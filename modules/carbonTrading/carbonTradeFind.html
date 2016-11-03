@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<title>碳普惠</title>
+<link rel="stylesheet" href="../../statics/css/base.css"/>
+<link rel="stylesheet" href="../../statics/script/plugins/kkpager/kkpager.css"/>
+<link rel="stylesheet" href="../../statics/css/newStyle.css"/>
+<script src="../../statics/script/config/config.js"></script>
+<script src="../../statics/script/jquery-1.7.2.min.js"></script>
+<script src="../../statics/script/plugins/kkpager/kkpager.js"></script>
+<script src="script/carbonTradeFind.js"></script>
+</head>
+<body>
+	<div class="wrap-main">
+		<div class="big-banner">
+			<img src="../../statics/image/pic-12.png" class="pic" />
+		</div>
+		<div class="main carbonTrade-main">
+			<div class="wrapTab">
+				<div class="width960">
+					<ul class="tab">
+						<li class="tab-item"><a href="carbonTradeCompany.html?cateid=15986464ef214c7da29ff1486f48b220" target="_blank">企业减排</a></li>
+						<li class="tab-item active-item"><a href="carbonTradeFind.html?cateid=060d2e2855b34675a37821012209f10d" target="_blank">寻集碳币</a></li>
+					</ul>
+					<div class="doI">
+						<a href="javascript:openModal('myModaFind');">我要寻集</a>
+					</div>
+				</div>
+			</div>
+			<div class="width960 carbonTrade-list">
+				<div class="wrap-sort">
+					<span class="sort">
+						<a href="javascript:" class="btnLeft" onclick="obtainSort('COUNT_NUM')">碳币<i class="icon-tip"></i></a>
+						<a href="javascript:" class="btnLeft">
+							<b onclick="showDropdown('dropPeople')"><span id="sortPeople">个人</span><i class="icon-dropdown"></i></b>
+							<dl class="dropdown-list" id="dropPeople">
+								<dd onclick="obtainSort(this,'sortPeople','2')">个人</dd>
+								<dd onclick="obtainSort(this,'sortPeople','1')">企业</dd>
+							</dl>
+						</a>
+						<a href="javascript:">
+							<b onclick="showDropdown('dropExchange')"><span id="exchangeUse">优惠兑换</span><i class="icon-dropdown"></i></b>
+							<dl class="dropdown-list" id="dropExchange">
+								<dd onclick="obtainSort(this,'exchangeUse','优惠兑换')">优惠兑换</dd>
+								<dd onclick="obtainSort(this,'exchangeUse','公益活动')">公益活动</dd>
+								<dd onclick="obtainSort(this,'exchangeUse','交友互动')">交友互动</dd>
+								<dd onclick="obtainSort(this,'exchangeUse','其他')">其他</dd>
+							</dl>
+						</a>
+					</span>
+				</div>
+				<div class="wrap-list">
+					<ul class="lists" id="carbonTradeFind-list">
+						<li class="item item-find">
+							<div class="item-right">
+								<a href="javascript:openModal('myModalSend')">去赠送/交易</a>
+							</div>
+							<div class="item-left">
+								<div class="left-pic">
+									<div class="wrap-pic">
+										<img src="../../statics/image/pic126.png" alt=""/>
+									</div>
+									<p class="name"><a href="">耳朵难眠</a></p>
+								</div>
+								<div class="left-content">
+									<h5><a href="">北京街都府社区低碳改造示范项目</a></h5>
+									<div class="content-info">
+										<span class="info">认购碳币数：<b>5</b></span>
+										<span class="info">认购对象：<b>公众</b></span>
+										<span class="info">认购用途：<b>优惠兑换</b></span>
+									</div>
+									<div class="item-info">
+										<span class="item-time"><i class="icon-time"></i>1小时前</span><span class="item-watch"><i class="icon-watch"></i>2000</span>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="list-page kkpager" id="kkpager"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="myModal-mask" id="myModal-mask"></div> -->
+	<!--我要寻集-->
+	<div class="wrap-myModal" id="myModaFind">
+	  <div class="myModal">
+			<div class="myModal-title">
+				我要寻集
+				<i class="icon-close" onclick="closeModal('myModaFind');"></i>
+			</div>
+	    <div class="myModal-main">
+				<ul>
+					<li class="input-item">
+						<label>
+							<span>*</span>
+							碳友昵称：
+						</label>
+						<div class="input-right">
+							<input type="text" placeholder="" id="userName" class="input1 modalInput"></div>
+					</li>
+					<li class="input-item">
+						<label><span>*</span>寻集标题：</label>
+						<div class="input-right">
+							<input type="text" maxlength="10" id="findTitle" placeholder="最多三十个字" class="input2 modalInput">
+						</div>
+					</li>
+					<li class="input-item">
+						<label>
+							<span>*</span>
+							寻集碳币数：
+						</label>
+						<div class="input-right">
+							<input type="text" placeholder="" id="findNumber" class="input1 modalInput">个</div>
+					</li>
+					<li class="input-item dropdown-item">
+						<label>
+							<span>*</span>
+							寻集对象：
+						</label>
+						<div class="input-right ">
+						    <input type="hidden" placeholder="" id="userObject" class="input1 modalInput">
+						    <span class="droptitle" onclick="showDropdown('dropUl0');"><em id="watchContent0"></em><i class="icon"></i></span>
+						    <ul class="dropUl" id="dropUl0">
+						    	<li class="dropitem" onclick="obtainItem(this,'watchContent0','userObject')">公众</li>
+						    	<li class="dropitem" onclick="obtainItem(this,'watchContent0','userObject')">公众2</li>
+						    	<li class="dropitem" onclick="obtainItem(this,'watchContent0','userObject')">公众3</li>
+						    	<li class="dropitem" onclick="obtainItem(this,'watchContent0s','userObject')">公众4</li>
+						    </ul>
+						</div>
+					</li>
+					<li class="input-item dropdown-item">
+						<label>
+							<span>*</span>
+							寻集用途：
+						</label>
+						<div class="input-right">
+							<input type="hidden" placeholder="" id="findUse">
+						    <span class="droptitle" onclick="showDropdown('dropUl1');"><em id="watchContent1"></em><i class="icon"></i></span>
+						    <ul class="dropUl" id="dropUl1">
+						    	<li class="dropitem" onclick="obtainItem(this,'watchContent1','findUse')">公众</li>
+						    	<li class="dropitem" onclick="obtainItem(this,'watchContent1','findUse')">公众2</li>
+						    	<li class="dropitem" onclick="obtainItem(this,'watchContent1','findUse')">公众3</li>
+						    	<li class="dropitem" onclick="obtainItem(this,'watchContent1','findUse')">公众4</li>
+						    </ul>
+						</div>
+					</li>
+				</ul>
+				<div class="myModal-foot">
+					<a href="javascript:" id="applyBtn" class="btn apply-btn">提交申请</a>
+					<a href="javascript:closeModal('myModaFind');" class="btn">取消</a>
+				</div>
+		  </div>
+    </div>
+	</div>
+	<!--我要赠送-->
+	<div class="wrap-myModal" id="myModalSend">
+		<div class="myModal">
+			<div class="myModal-title">
+				我要赠送 <i class="icon-close" onclick="closeModal('myModalSend');"></i>
+			</div>
+			<div class="myModal-main">
+				<ul>
+					<li class="input-item">
+						<label>
+							<span>*</span>
+							赠送碳币：
+						</label>
+						<div class="input-right">
+							<input type="text" placeholder="" id="SendCarbon" class="input1 modalInput"></div>
+					</li>
+
+					<li class="input-item">
+						<label>现有碳币：</label>
+						<div class="input-right">
+							<input type="text" placeholder="" id="nowCarbon" class="input1 modalInput"></div>
+					</li>
+				</ul>
+				<div class="myModal-foot">
+					<a href="javascript:" id="applyBtn1" class="btn apply-btn">提交申请</a>
+					<a href="javascript:closeModal('myModalSend');" class="btn">取消</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

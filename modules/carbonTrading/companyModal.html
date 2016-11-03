@@ -1,0 +1,141 @@
+<body>
+<div class="myModal-main">
+	<ul>
+		<li class="input-item">
+			<label>
+				<span>*</span>
+				碳友昵称：
+			</label>
+			<div class="input-right">
+				<input type="text" id='userName' placeholder="" class="input1 modalInput"></div>
+		</li>
+		<li class="input-item">
+			<label>
+				<span>*</span>
+				捐赠企业：
+			</label>
+			<div class="input-right">
+				<input type="text" id="userCompany" placeholder="" class="input2 modalInput"></div>
+		</li>
+		<li class="input-item">
+			<label>
+				<span>*</span>
+				项目名称：
+			</label>
+			<div class="input-right">
+				<input type="text" id="projectName" placeholder="" class="input2 modalInput"></div>
+		</li>
+		<li class="input-item">
+			<label>
+				<span>*</span>
+				所在城市：
+			</label>
+			<div class="input-right">
+				<input type="text" id="userCity" placeholder="输入企业所在城市" class="input2 modalInput"></div>
+		</li>
+		<li class="input-item">
+			<label>
+				<span>*</span>
+				联系人：
+			</label>
+			<div class="input-right">
+				<input type="text" id="userContact" placeholder="" class="input1 modalInput"></div>
+		</li>
+		<li class="input-item">
+			<label>
+				<span>*</span>
+				联系方式：
+			</label>
+			<div class="input-right">
+				<input type="text" id="userTel" placeholder="电话/邮箱" class="input2 modalInput"></div>
+		</li>
+		<li class="input-item">
+			<label>
+				<span>*</span>
+				项目简介：
+			</label>
+			<div class="input-right">
+				<textarea id="projectIntro" placeholder="请输入项目简介" class="modalTextarea"></textarea>
+			</div>
+		</li>
+
+	</ul>
+	<div class="word-tip">
+		还可以输入
+		<span class="word">500</span>
+		字
+	</div>
+	<div class="myModal-foot">
+		<a href="javascript:" id="applyBtn" class="btn apply-btn">提交申请</a>
+		<a href="javascript:closeModal();" class="btn">取消</a>
+	</div>
+
+</div>
+<script>
+	$(function(){
+		$("#applyBtn").on("click", function() {
+		var userName = $("#userName").val(),
+			userCompany = $("#userCompany").val(),
+			projectName = $("#projectName").val(),
+			userCity = $("#userCity").val(),
+			userContact = $("#userContact").val(),
+			userTel = $("#userTel").val(),
+			projectIntro = $("#projectIntro").val();
+		if (userName == "") {
+			alert("碳友昵称不能为空")
+			return false;
+		}
+		if (userCompany == "") {
+			alert("捐赠企业不能为空")
+			return false;
+		}
+		if (projectName == "") {
+			alert("项目名称不能为空")
+			return false;
+		}
+		if (userCity == "") {
+			alert("所在城市不能为空")
+			return false;
+		}
+		if (userContact == "") {
+			alert("联系人不能为空")
+			return false;
+		}
+		if (userTel == "") {
+			alert("联系方式不能为空")
+			return false;
+		}
+		if (projectIntro == "") {
+			alert("项目简介不能为空")
+			return false;
+		}
+		$.ajax({
+			type: 'post',
+			url: path() + "/foreignTrading/donation.do",
+			dataType: 'json',
+			data: {
+				userName: userName,
+				enterprise: userCompany,
+				projectName: projectName,
+				userCity: userCity,
+				contact: userContact,
+				phone: userTel,
+				content: projectIntro
+			},
+			success: function(res) {
+				if (res.success) {
+					$("#myModal").fadeOut();
+					$("#myModal-mask").fadeOut();
+
+				} else {
+					alert(res.message);
+				}
+
+			}
+
+		})
+
+	})
+	});
+	</script>
+</body>
