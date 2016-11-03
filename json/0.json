@@ -1,0 +1,46 @@
+[
+    {
+        "id": "d88c981b7bcb484fa1834de4a711489c",
+        "name": "资讯推荐",
+        "address": "/hallController/getHallList.do",
+        "parent": [
+            {
+                "id": "f388d8d5923d4d02a1e0ab0c5e68aa93",
+                "name": "企业",
+                "address": "/hallController/getHallList.do"
+            },
+            {
+                "id": "2197d27acc7f4ba4872643c09bfea485",
+                "name": "政府",
+                "address": "/hallController/getHallList.do"
+            },
+            {
+                "id": "57c488e7b381476c8adaf191c6047eeb",
+                "name": "科技",
+                "address": "/hallController/getHallList.do"
+            }
+        ]
+    },
+    {
+        "id": "ba1c6dcb56c34b1dbb6f60edecf1659f",
+        "name": "TPH原创",
+        "address": "/hallController/getHallList.do",
+        "parent": [
+            {
+                "id": "7de7310f060240f7aa170dc81a4d4fc2",
+                "name": "企业",
+                "address": "/hallController/getHallList.do"
+            },
+            {
+                "id": "289f6cfb694d4e9982814ccc21f509f3",
+                "name": "政府",
+                "address": "/hallController/getHallList.do"
+            },
+            {
+                "id": "1aef494760a04ee0a4d057d897bb4016",
+                "name": "科技",
+                "address": "/hallController/getHallList.do"
+            }
+        ]
+    }
+]

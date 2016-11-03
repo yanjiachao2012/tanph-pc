@@ -1,0 +1,73 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<title>碳普惠</title>
+<link rel="stylesheet" href="../../statics/css/base.css"/>
+<link rel="stylesheet" href="../../statics/script/plugins/kkpager/kkpager.css"/>
+<link rel="stylesheet" href="../../statics/css/newStyle.css"/>
+<script src="../../statics/script/config/config.js"></script>
+<script src="../../statics/script/jquery-1.7.2.min.js"></script>
+<script src="../../statics/script/plugins/kkpager/kkpager.js"></script>
+<script src="script/carbonTradeFind.js"></script>
+<script src="script/jqery-dialog.js"></script>
+<script src="script/jqery-winter.js"></script>
+</head>
+<body>
+<div class="myModal-main">
+
+	<ul>
+		<li class="input-item">
+			<label>
+				<span>*</span>
+				赠送碳币：
+			</label>
+			<div class="input-right">
+				<input type="text" placeholder="" id="SendCarbon" class="input1 modalInput"></div>
+		</li>
+		
+		<li class="input-item">
+			<label>
+				现有碳币：
+			</label>
+			<div class="input-right">
+				<input type="text" placeholder="" id="nowCarbon" class="input1 modalInput"></div>
+		</li>
+	</ul>
+	<div class="myModal-foot">
+		<a href="javascript:" id="applyBtn1" class="btn apply-btn">提交申请</a>
+		<a href="javascript:closeModal1();" class="btn">取消</a>
+	</div>
+</div>
+	<script>
+	    $(function(){
+	    	$("#applyBtn1").on("click", function() {
+		    var SendCarbon = $("#SendCarbon").val(),
+				SendCarbon = $("#SendCarbon").val();
+				if (SendCarbon == "") {
+					alert("赠送碳币数不能为空")
+					return false;
+				}
+		$.ajax({
+			type: 'post',
+			url: path() + "/foreignTrading/findenough.do",
+			dataType: 'json',
+			data: {
+				giveCoinCount: SendCarbon
+			},
+			success: function(res) {
+				if (res.success) {
+					$("#myModal").fadeOut();
+					$("#myModal-mask").fadeOut();
+
+				} else {
+					alert(res.message);
+				}
+
+			}
+
+		})
+
+	})
+	    });
+	</script>
+</body>
+</html>

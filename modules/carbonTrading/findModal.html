@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<title>碳普惠</title>
+<link rel="stylesheet" href="../../statics/css/base.css"/>
+<link rel="stylesheet" href="../../statics/css/plugins/selectpick.css"/>
+<link rel="stylesheet" href="../../statics/css/newStyle.css"/>
+<script src="../../statics/script/config/config.js"></script>
+<script src="../../statics/script/jquery-1.7.2.min.js"></script>
+<script src="../../statics/script/plugins/selectpick.js"></script>
+<script src="script/carbonTradeFind.js"></script>
+<script src="script/jqery-dialog.js"></script>
+<script src="script/jqery-winter.js"></script>
+	</head>
+<body>
+
+<div class="myModal-main">
+	<ul>
+		<li class="input-item">
+			<label>
+				<span>*</span>
+				碳友昵称：
+			</label>
+			<div class="input-right">
+				<input type="text" placeholder="" id="userName" class="input1 modalInput"></div>
+		</li>
+		<li class="input-item">
+			<label><span>*</span>寻集标题：</label>
+			<div class="input-right">
+				<input type="text" maxlength="10" id="findTitle" placeholder="最多三十个字" class="input2 modalInput">
+			</div>
+		</li>
+		<li class="input-item">
+			<label>
+				<span>*</span>
+				寻集碳币数：
+			</label>
+			<div class="input-right">
+				<input type="text" placeholder="" id="findNumber" class="input1 modalInput">个</div>
+		</li>
+		<li class="input-item dropdown-item">
+			<label>
+				<span>*</span>
+				寻集对象：
+			</label>
+			<div class="input-right ">
+			    <input type="hidden" placeholder="" id="userObject" class="input1 modalInput">
+			    <span class="droptitle" onclick="showDropdown('dropUl0');"><em id="watchContent0"></em><i class="icon"></i></span>
+			    <ul class="dropUl" id="dropUl0">
+			    	<li class="dropitem" onclick="obtainItem(this,'watchContent0','userObject')">公众</li>
+			    	<li class="dropitem" onclick="obtainItem(this,'watchContent0','userObject')">公众2</li>
+			    	<li class="dropitem" onclick="obtainItem(this,'watchContent0','userObject')">公众3</li>
+			    	<li class="dropitem" onclick="obtainItem(this,'watchContent0s','userObject')">公众4</li>
+			    </ul>
+			</div>
+		</li>
+		<li class="input-item dropdown-item">
+			<label>
+				<span>*</span>
+				寻集用途：
+			</label>
+			<div class="input-right">
+				<input type="hidden" placeholder="" id="findUse">
+			    <span class="droptitle" onclick="showDropdown('dropUl1');"><em id="watchContent1"></em><i class="icon"></i></span>
+			    <ul class="dropUl" id="dropUl1">
+			    	<li class="dropitem" onclick="obtainItem(this,'watchContent1','findUse')">公众</li>
+			    	<li class="dropitem" onclick="obtainItem(this,'watchContent1','findUse')">公众2</li>
+			    	<li class="dropitem" onclick="obtainItem(this,'watchContent1','findUse')">公众3</li>
+			    	<li class="dropitem" onclick="obtainItem(this,'watchContent1','findUse')">公众4</li>
+			    </ul>
+			</div>
+		</li>
+
+	</ul>
+	<div class="myModal-foot">
+		<a href="javascript:" id="applyBtn" class="btn apply-btn">提交申请</a>
+		<a href="javascript:closeModal();" class="btn">取消</a>
+	</div>
+</div>
+
+	<script>
+	$(function(){
+	    $("#applyBtn").on("click", function() {
+		    var userName = $("#userName").val(),
+				findNumber = $("#findNumber").val(),
+				userObject = $("#userObject").val(),
+				findUse = $("#findUse").val(),
+				findTitle = $("#findTitle").val();
+				if (userName == "") {
+					alert("碳友昵称不能为空")
+					return false;
+				}
+				if (findTitle == "") {
+					alert("寻集标题不能为空")
+					return false;
+				}
+				if (findNumber == "") {
+					alert("寻集碳币数不能为空")
+					return false;
+				}
+				if (userObject == "") {
+					alert("寻集对象不能为空")
+					return false;
+				}
+				if (findUse == "") {
+					alert("用途不能为空")
+					return false;
+				}
+			$.ajax({
+				type: 'post',
+				url: path() + "/foreignTrading/findenough.do",
+				dataType: 'json',
+				data: {
+					userName: userName,
+					tradingNum: findNumber,
+					tradingClass: userObject,
+					memo: findUse,
+					message: findTitle
+				},
+				success: function(res) {
+					if (res.success) {
+						$("#myModal").fadeOut();
+						$("#myModal-mask").fadeOut();
+
+					} else {
+						alert(res.message);
+					}
+
+				}
+
+			})
+
+	})
+	    });
+  function obtainItem(obj,argShow,argHidden){
+        var _text=$(obj).text();
+        $("#"+argShow).text(_text);
+        $("#"+argHidden).val(_text);
+        $(obj).parent().fadeOut();
+  }
+  function showDropdown(target){
+       $("#"+target).fadeIn();
+  }
+	</script>
+</body>
+</html>
