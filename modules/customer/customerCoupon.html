@@ -8,7 +8,14 @@
 <link rel="stylesheet" href="../../statics/css/newStyle.css"/>
 <script src="../../statics/script/config/config.js"></script>
 <script src="../../statics/script/jquery-1.7.2.min.js"></script>
-
+<script>
+	function toggleTab(obj,obj0,obj1){
+		$(obj).addClass("active-item");
+		$(obj).siblings().removeClass("active-item");
+		$("#remindContent"+obj0).css("display","block");
+    $("#remindContent"+obj1).css("display","none");
+	}
+</script>
 </head>
 <body>
 <!--头部开始-->
@@ -188,12 +195,12 @@
 		  <div class="customer-right">
 		  	<div class="customerTab">
 		  		<ul class="tab">
-						<li class="tab-item active-item">过期优惠券提醒</li>
-						<li class="tab-item">活动开始提醒</li>
+						<li class="tab-item active-item" onclick="toggleTab(this,'0','1')">过期优惠券提醒</li>
+						<li class="tab-item" onclick="toggleTab(this,'1','0')">活动开始提醒</li>
 					</ul>
 		  	</div>
 		  	<div class="wrap-list-content">
-		  		<div class="list-content">
+		  		<div class="list-content" id="remindContent0">
 			  		<ul class="list-content-ul">
 			  			<li class="content-item exchange-item">
 			  				<div class="item-up">
@@ -330,8 +337,101 @@
 			  			</li>
 			  		</ul>
 			  		<div class="read-more"><a href="">查看更多</a></div>
+			  		<div class="no-content" style="display:none;">
+			  			<div class="no-content-remind"><i class="no-content-icon"></i>你没有即将过期的优惠券</div>
+			  			<div class="no-content-link"><a href="" class="link-left">查看我的优惠券</a><a href="" class="link-right">兑换更多的优惠</a></div>
+			  		</div>
 		  		</div>
-		  		<ul></ul>
+		  		<div class="list-content" id="remindContent1" style="display:none;">
+		  			<ul class="list-activity-remind">
+		  				<li class="remind-item">
+		  				  <div class="remind-content-left remind-platform-left">
+		  					</div>
+		  					<div class="remind-content-right">
+		  						<h5><a href="#">认证中心足球队骑行踢球</a></h5>
+		  						<div class="right-common">创始人：<span class="mark">西木</span></div>
+		  						<div class="right-common">参与人数：<span class="mark">2</span></div>
+		  						<div class="right-common">距活动开始还有<b class="No">3</b>天</div>
+		  					</div>
+		  				</li>
+		  				<li class="remind-item">
+		  				  <div class="remind-content-left remind-car-left">
+		  					</div>
+		  					<div class="remind-content-right">
+		  						<h5><a href="#">认证中心足球队骑行踢球</a></h5>
+		  						<div class="right-common">创始人：<span class="mark">西木</span></div>
+		  						<div class="right-common">参与人数：<span class="mark">2</span></div>
+		  						<div class="right-common">距活动开始还有<b class="No">3</b>天</div>
+		  					</div>
+		  				</li>
+		  				<li class="remind-item">
+		  				  <div class="remind-content-left remind-plant-left">
+		  					</div>
+		  					<div class="remind-content-right">
+		  						<h5><a href="#">认证中心足球队骑行踢球</a></h5>
+		  						<div class="right-common">创始人：<span class="mark">西木</span></div>
+		  						<div class="right-common">参与人数：<span class="mark">2</span></div>
+		  						<div class="right-common">距活动开始还有<b class="No">3</b>天</div>
+		  					</div>
+		  				</li>
+		  				<li class="remind-item">
+		  				  <div class="remind-content-left remind-exchange-left">
+		  					</div>
+		  					<div class="remind-content-right">
+		  						<h5><a href="#">认证中心足球队骑行踢球</a></h5>
+		  						<div class="right-common">创始人：<span class="mark">西木</span></div>
+		  						<div class="right-common">参与人数：<span class="mark">2</span></div>
+		  						<div class="right-common">距活动开始还有<b class="No">3</b>天</div>
+		  					</div>
+		  				</li>
+		  				<li class="remind-item">
+		  				  <div class="remind-content-left remind-platform-left">
+		  					</div>
+		  					<div class="remind-content-right">
+		  						<h5><a href="#">认证中心足球队骑行踢球</a></h5>
+		  						<div class="right-common">创始人：<span class="mark">西木</span></div>
+		  						<div class="right-common">参与人数：<span class="mark">2</span></div>
+		  						<div class="right-common">距活动开始还有<b class="No">3</b>天</div>
+		  					</div>
+		  				</li>
+		  				<li class="remind-item">
+		  				  <div class="remind-content-left remind-car-left">
+		  					</div>
+		  					<div class="remind-content-right">
+		  						<h5><a href="#">认证中心足球队骑行踢球</a></h5>
+		  						<div class="right-common">创始人：<span class="mark">西木</span></div>
+		  						<div class="right-common">参与人数：<span class="mark">2</span></div>
+		  						<div class="right-common">距活动开始还有<b class="No">3</b>天</div>
+		  					</div>
+		  				</li>
+		  				<li class="remind-item">
+		  				  <div class="remind-content-left remind-plant-left">
+		  					</div>
+		  					<div class="remind-content-right">
+		  						<h5><a href="#">认证中心足球队骑行踢球</a></h5>
+		  						<div class="right-common">创始人：<span class="mark">西木</span></div>
+		  						<div class="right-common">参与人数：<span class="mark">2</span></div>
+		  						<div class="right-common">距活动开始还有<b class="No">3</b>天</div>
+		  					</div>
+		  				</li>
+		  				<li class="remind-item">
+		  				  <div class="remind-content-left remind-exchange-left">
+		  					</div>
+		  					<div class="remind-content-right">
+		  						<h5><a href="#">认证中心足球队骑行踢球</a></h5>
+		  						<div class="right-common">创始人：<span class="mark">西木</span></div>
+		  						<div class="right-common">参与人数：<span class="mark">2</span></div>
+		  						<div class="right-common">距活动开始还有<b class="No">3</b>天</div>
+		  					</div>
+		  				</li>
+		  			</ul>
+		  			<div class="read-more"><a href="">查看全部</a></div>
+		  			<div class="no-content" style="display:none;">
+			  			<div class="no-content-remind"><i class="no-content-icon"></i>您没有即将开始得活动喔~</div>
+			  			<div class="no-content-link"><a href="" class="link-left">查看我的活动</a><a href="" class="link-right">参与更多活动</a></div>
+			  		</div>
+		  		</div>
+		  		
 		  	</div>
 		  	<div class="wrap-list-content list-content-like">
 		  		<div class="content-title">
@@ -506,7 +606,7 @@
 		  							发私信
 		  						</a>
 		  						<a href="">
-		  							我要认养
+		  							植物认养
 		  						</a>
 		  					</div>
 		  					<div class="activity-left">
@@ -598,7 +698,7 @@
 		  							发私信
 		  						</a>
 		  						<a href="">
-		  							我要认养
+		  							植物认养
 		  						</a>
 		  					</div>
 		  					<div class="activity-left">

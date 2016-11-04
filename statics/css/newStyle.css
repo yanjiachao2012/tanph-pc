@@ -2021,22 +2021,24 @@ body {
 .customer-right {
   /*猜你喜欢**/
   /**活动推荐**/
+  /**开始活动提醒**/
 }
 .customer-right .customerTab {
   padding: 15px 17px 2px;
-  height: 58px;
+  height: 55px;
   background-color: #fff;
 }
 .customer-right .customerTab .tab {
   padding-left: 20px;
-  height: 58px;
+  height: 55px;
   border-bottom: 1px solid #ddd;
 }
 .customer-right .customerTab .tab-item {
   padding: 0 35px;
-  height: 55px;
+  height: 52px;
   float: left;
-  line-height: 55px;
+  cursor: pointer;
+  line-height: 52px;
   font-size: 20px;
   border-top: 3px solid #fff;
 }
@@ -2135,6 +2137,9 @@ body {
   border-right: 1px solid #ddd;
   border-left: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
 }
 .customer-right .wrap-list-content .item-down .exchange-data {
   display: inline-block;
@@ -2274,6 +2279,7 @@ body {
   background: url(../../statics/image/icons/icon-time.png) no-repeat left center;
 }
 .customer-right .list-content-activity .list-activity .activity-right {
+  margin-top: 20px;
   float: right;
 }
 .customer-right .list-content-activity .list-activity .activity-right a {
@@ -2342,6 +2348,96 @@ body {
 }
 .customer-right .list-content-activity .list-activity .plant-item .activity-details {
   background: url(../../statics/image/icons/icon-user.png) no-repeat left center;
+}
+.customer-right .list-activity-remind {
+  padding-left: 10px;
+  overflow: hidden;
+}
+.customer-right .list-activity-remind .remind-item {
+  float: left;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  width: 310px;
+}
+.customer-right .list-activity-remind .remind-item .remind-content-left {
+  float: left;
+  margin-right: 10px;
+  width: 88px;
+  height: 88px;
+}
+.customer-right .list-activity-remind .remind-item .remind-content-right {
+  overflow: hidden;
+}
+.customer-right .list-activity-remind .remind-item .remind-content-right h5 {
+  padding-bottom: 13px;
+  line-height: 1;
+}
+.customer-right .list-activity-remind .remind-item .remind-content-right h5 a {
+  color: #333;
+}
+.customer-right .list-activity-remind .remind-item .remind-content-right .right-common {
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #a9a9a9;
+}
+.customer-right .list-activity-remind .remind-item .remind-content-right .right-common .mark {
+  color: #333;
+}
+.customer-right .list-activity-remind .remind-item .remind-content-right .right-common .No {
+  margin: 0 4px;
+  color: #ff0000;
+}
+.customer-right .list-activity-remind .remind-item .remind-platform-left {
+  background: url(../../statics/image/icons/icon-activity-join88.png) no-repeat;
+}
+.customer-right .list-activity-remind .remind-item .remind-car-left {
+  background: url(../../statics/image/icons/icon-activity-car88.png) no-repeat;
+}
+.customer-right .list-activity-remind .remind-item .remind-plant-left {
+  background: url(../../statics/image/icons/icon-activity-plant88.png) no-repeat;
+}
+.customer-right .list-activity-remind .remind-item .remind-exchange-left {
+  background: url(../../statics/image/icons/icon-activity-exchange88.png) no-repeat;
+}
+.customer-right .no-content {
+  padding-bottom: 80px;
+  text-align: center;
+}
+.customer-right .no-content .no-content-remind {
+  padding: 55px 0 60px;
+  font-size: 24px;
+  color: #a9a9a9;
+}
+.customer-right .no-content .no-content-remind .no-content-icon {
+  display: inline-block;
+  margin-right: 25px;
+  width: 58px;
+  height: 53px;
+  vertical-align: middle;
+  background: url(../../statics/image/icons/icon-smile.png) no-repeat center center;
+}
+.customer-right .no-content .no-content-link {
+  font-size: 18px;
+}
+.customer-right .no-content .no-content-link a {
+  display: inline-block;
+  padding: 0 25px;
+  margin: 0 12px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #24b026;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
+}
+.customer-right .no-content .no-content-link .link-left {
+  background-color: #24b026;
+  color: #fff;
+}
+.customer-right .no-content .no-content-link .link-right {
+  color: #24b026;
 }
 
 /***尾部**/
